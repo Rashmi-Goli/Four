@@ -90,3 +90,12 @@ maven-package:
 #    script:
 #        - ./mvnw -ntp jib:build -Pprod -Djib.to.image=$IMAGE_TAG -Djib.to.auth.username=gitlab-ci-token  -Djib.to.auth.password=$CI_BUILD_TOKEN -Dmaven.repo.local=$MAVEN_USER_HOME
 
+after_script:
+  - echo "After script section"
+  - echo "For example you might do some cleanup here"
+
+deploy:
+  image: python:latest
+  script:
+    - pip install awscli
+    - env
